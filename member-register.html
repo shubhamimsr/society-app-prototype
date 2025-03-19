@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Member Registration</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/member-register.css">
+</head>
+<style>
+    body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f8f9fa;
+}
+
+.container {
+    max-width: 600px;
+}
+
+.card {
+    width: 100%;
+    border-radius: 10px;
+}
+
+@media (max-width: 600px) {
+    .container {
+        width: 90%;
+    }
+}
+</style>
+<script>
+    function registerMember(event) {
+    event.preventDefault();
+
+    let fullName = document.getElementById("fullName").value;
+    let mobile = document.getElementById("mobile").value;
+    let alternateMobile = document.getElementById("alternateMobile").value;
+    let email = document.getElementById("email").value;
+    let alternateEmail = document.getElementById("alternateEmail").value;
+    let nativeAddress = document.getElementById("nativeAddress").value;
+    let nativeMobile = document.getElementById("nativeMobile").value;
+    let govId = document.getElementById("govId").value;
+
+    console.log({
+        fullName, mobile, alternateMobile, email, alternateEmail,
+        nativeAddress, nativeMobile, govId
+    });
+
+    // alert("Member Registered Successfully!");
+    window.location.href="MemberLogin.html";
+    document.querySelector("form").reset();
+}
+</script>
+<body>
+
+    <div class="container">
+        <div class="card shadow p-4">
+            <h2 class="text-center">Member Registration</h2>
+            <form onsubmit="registerMember(event)">
+                <div class="mb-3">
+                    <label class="form-label">Full Name<sup style="color: red;">*</sup></label>
+                    <input type="text" class="form-control" id="fullName" >
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Mobile<sup style="color: red;">*</sup></label>
+                        <input type="tel" class="form-control" id="mobile" >
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Alternate Mobile</label>
+                        <input type="tel" class="form-control" id="alternateMobile">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Email<sup style="color: red;">*</sup></label>
+                        <input type="email" class="form-control" id="email" >
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Alternate Email</label>
+                        <input type="email" class="form-control" id="alternateEmail">
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Native Address<sup style="color: red;">*</sup></label>
+                    <textarea class="form-control" id="nativeAddress" rows="2"></textarea>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Native Mobile<sup style="color: red;">*</sup></label>
+                    <input type="tel" class="form-control" id="nativeMobile">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Government ID<sup style="color: red;">*</sup></label>
+                    <input type="text" class="form-control" id="govId" >
+                </div>
+                <button type="submit" class="btn btn-success w-100" >Register</button>
+                <button type="reset" class="btn btn-secondary w-100 mt-2">Cancel/Reset</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/member-register.js"></script>
+
+</body>
+</html>
