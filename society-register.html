@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,75 +9,75 @@
     <link rel="stylesheet" href="css/society-register.css">
     <style>
         body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f8f9fa;
-}
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f8f9fa;
+        }
 
-.card {
-    width: 50%;
-    max-width: 500px;
-}
+        .card {
+            width: 50%;
+            max-width: 500px;
+        }
 
-@media (max-width: 600px) {
-    .card {
-        width: 90%;
-    }
-}
-
+        @media (max-width: 600px) {
+            .card {
+                width: 90%;
+            }
+        }
     </style>
     <script>
         function registerSociety(event) {
-    event.preventDefault();
+            event.preventDefault();
 
-    let societyName = document.getElementById("societyName").value;
-    localStorage.setItem("selectedSocietyName", societyName);
+            let societyName = document.getElementById("societyName").value;
+            localStorage.setItem("selectedSocietyName", societyName);
 
-    alert("Society Registered Successfully!");
-    window.location.href = "index.html";
-}
+            alert("Society Registered Successfully!");
+            window.location.href = "index.html";
+        }
 
-function goBack() {
-    window.location.href = "admin-register.html";
-}
+        function goBack() {
+            window.location.href = "admin-register.html";
+        }
 
-function loadCities() {
-    let state = document.getElementById("stateDropdown").value;
-    let cityDropdown = document.getElementById("cityDropdown");
+        function loadCities() {
+            let state = document.getElementById("stateDropdown").value;
+            let cityDropdown = document.getElementById("cityDropdown");
 
-    cityDropdown.innerHTML = `<option value="">Select City</option>`;
-    if (state === "Maharashtra") {
-        cityDropdown.innerHTML += `<option value="Mumbai">Mumbai</option>
+            cityDropdown.innerHTML = `<option value="">Select City</option>`;
+            if (state === "Maharashtra") {
+                cityDropdown.innerHTML += `<option value="Mumbai">Mumbai</option>
                                    <option value="Pune">Pune</option>`;
-    } else if (state === "Karnataka") {
-        cityDropdown.innerHTML += `<option value="Bangalore">Bangalore</option>
+            } else if (state === "Karnataka") {
+                cityDropdown.innerHTML += `<option value="Bangalore">Bangalore</option>
                                    <option value="Mysore">Mysore</option>`;
-    }
-}
+            }
+        }
 
     </script>
 </head>
+
 <body>
 
     <div class="card shadow p-4">
         <h2 class="text-center">Register to a New Society</h2>
         <form onsubmit="registerSociety(event)">
             <div class="mb-3">
-                <label class="form-label">Society Name</label>
-                <input type="text" class="form-control" id="societyName"  >
+                <label class="form-label">Society Name</label><sup style="color: red;">*</sup>
+                <input type="text" class="form-control" id="societyName">
             </div>
             <div class="mb-3">
-                <label class="form-label">Registration No.</label>
-                <input type="text" class="form-control" id="registrationNo"  >
+                <label class="form-label">Registration No.</label><sup style="color: red;">*</sup>
+                <input type="text" class="form-control" id="registrationNo">
             </div>
             <div class="mb-3">
-                <label class="form-label">Detailed Address</label>
-                <input type="text" class="form-control" id="detailedAddress"  >
+                <label class="form-label">Detailed Address</label><sup style="color: red;">*</sup>
+                <input type="text" class="form-control" id="detailedAddress">
             </div>
             <div class="mb-3">
-                <label class="form-label">State</label>
+                <label class="form-label">State</label><sup style="color: red;">*</sup>
                 <select class="form-select" id="stateDropdown" onchange="loadCities()">
                     <option value="">Select State</option>
                     <option value="Maharashtra">Maharashtra</option>
@@ -84,13 +85,13 @@ function loadCities() {
                 </select>
             </div>
             <div class="mb-3">
-                <label class="form-label">City</label>
+                <label class="form-label">City</label><sup style="color: red;">*</sup>
                 <select class="form-select" id="cityDropdown">
                     <option value="">Select City</option>
                 </select>
             </div>
             <div class="mb-3">
-                <label class="form-label">Pincode</label>
+                <label class="form-label">Pincode</label><sup style="color: red;">*</sup>
                 <input type="text" class="form-control" id="pincode">
             </div>
             <button type="submit" class="btn btn-success w-100">Register</button>
@@ -101,4 +102,5 @@ function loadCities() {
     <script src="js/society-register.js"></script>
 
 </body>
+
 </html>

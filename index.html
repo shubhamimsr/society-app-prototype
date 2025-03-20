@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,62 +9,77 @@
     <link rel="stylesheet" href="css/admin-register.css">
     <style>
         body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f8f9fa;
-}
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f8f9fa;
+        }
 
-.card {
-    width: 50%;
-    max-width: 500px;
-}
+        .card {
+            width: 50%;
+            max-width: 500px;
+        }
 
-@media (max-width: 600px) {
-    .card {
-        width: 90%;
-    }
-}
-
+        @media (max-width: 600px) {
+            .card {
+                width: 90%;
+            }
+        }
     </style>
     <script>
         function proceedToSociety(event) {
-    event.preventDefault();
-
-    let email = document.getElementById("adminEmail").value;
-    let password = document.getElementById("adminPassword").value;
-    let retypePassword = document.getElementById("adminRetypePassword").value;
-
-    if (password !== retypePassword) {
-        alert("Passwords do not match!");
-        return;
-    }
-
-    localStorage.setItem("adminEmail", email);
-    window.location.href = "society-register.html";
-}
+            event.preventDefault();
+            localStorage.setItem("adminEmail", email);
+            window.location.href = "society-register.html";
+        }
 
     </script>
 </head>
+
 <body>
 
     <div class="card shadow p-4">
         <h2 class="text-center">Admin Registration</h2>
         <form onsubmit="proceedToSociety(event)">
             <div class="mb-3">
-                <label class="form-label">Email</label>
-                <input type="email" class="form-control" id="adminEmail"  >
+                <label class="form-label">Full Name<sup style="color: red;">*</sup></label>
+                <input type="text" class="form-control" id="fullName">
+            </div>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Mobile<sup style="color: red;">*</sup></label>
+                    <input type="tel" class="form-control" id="mobile">
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Alternate Mobile</label>
+                    <input type="tel" class="form-control" id="alternateMobile">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Email<sup style="color: red;">*</sup></label>
+                    <input type="email" class="form-control" id="email">
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Alternate Email</label>
+                    <input type="email" class="form-control" id="alternateEmail">
+                </div>
             </div>
             <div class="mb-3">
-                <label class="form-label">Password</label>
-                <input type="password" class="form-control" id="adminPassword"  >
+                <label class="form-label">Native Address<sup style="color: red;">*</sup></label>
+                <textarea class="form-control" id="nativeAddress" rows="2"></textarea>
             </div>
             <div class="mb-3">
-                <label class="form-label">Retype Password</label>
-                <input type="password" class="form-control" id="adminRetypePassword"  >
+                <label class="form-label">Native Mobile<sup style="color: red;">*</sup></label>
+                <input type="tel" class="form-control" id="nativeMobile">
             </div>
-            <button type="submit" class="btn btn-success w-100">Save & Next</button>
+            <div class="mb-3">
+                <label class="form-label">Government ID<sup style="color: red;">*</sup></label>
+                <input type="text" class="form-control" id="govId">
+            </div>
+            <button type="submit" class="btn btn-success w-100">Register</button>
+            <button type="reset" class="btn btn-secondary w-100 mt-2">Cancel/Reset</button>
         </form>
         <a href="./member-register.html">Go to Member Registeration</a>
     </div>
@@ -71,4 +87,5 @@
     <script src="js/admin-register.js"></script>
 
 </body>
+
 </html>
